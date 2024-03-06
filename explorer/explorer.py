@@ -1,5 +1,5 @@
-from searching_framework import Problem, breadth_first_graph_search
-
+from searching_framework.uninformed_search import breadth_first_graph_search
+from searching_framework.utils import Problem
 
 class Explorer(Problem):
     def __init__(self, person, house):  # TODO
@@ -14,27 +14,6 @@ class Explorer(Problem):
 
     def successor(self, state):
         neighbors = dict()
-
-        # # rez = self.move_right(state)
-        # rez = self.move(state, (+1,0))
-        # if rez != None: neighbors["Right"] = rez
-        #
-        # rez = self.move(state, (-1,0))
-        # if rez != None: neighbors["Left"] = rez
-        #
-        # rez = self.move(state, (0,+1))
-        # if rez != None: neighbors["Up"] = rez
-        #
-        # rez = self.move(state, (0,-1))
-        # if rez != None: neighbors["Down"] = rez
-
-        # actions = ("Right", "Left", "Up", "Down")
-        # directions = ((+1, 0), (-1, 0), (0, +1), (0, -1))
-        # for i in range(0, len(actions)):
-        #     action = actions[i]
-        #     direction = directions[i]
-        #     rez = self.move(state, direction)
-        #     if rez != None: neighbors[action] = rez
 
         actions = ("Right", "Left", "Up", "Down")
         directions = ((+1, 0), (-1, 0), (0, +1), (0, -1))
