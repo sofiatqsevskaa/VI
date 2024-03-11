@@ -1,5 +1,9 @@
-from searching_framework.uninformed_search import breadth_first_graph_search
-from searching_framework.utils import Problem
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..')))
+
+from VI.searching_framework.uninformed_search import breadth_first_graph_search
+from VI.searching_framework.utils import Problem
 
 class Explorer(Problem):
     def __init__(self, person, house):  # TODO
