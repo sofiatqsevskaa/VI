@@ -1,12 +1,8 @@
-import sys
-import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..')))
+from searching_framework import Problem, breadth_first_graph_search
 
-from VI.searching_framework.uninformed_search import breadth_first_graph_search
-from VI.searching_framework.utils import Problem
 
 class Explorer(Problem):
-    def __init__(self, person, house):  # TODO
+    def __init__(self, person, house):
         super().__init__((person, (2, 5, -1), (5, 0, +1)))
         self.house = house
         self.rows = 6
@@ -23,7 +19,8 @@ class Explorer(Problem):
         directions = ((+1, 0), (-1, 0), (0, +1), (0, -1))
         for action, direction in zip(actions, directions):
             rez = self.move(state, direction)
-            if rez is not None: neighbors[action] = rez
+            if rez is not None:
+                neighbors[action] = rez
 
         return neighbors
 
@@ -33,9 +30,7 @@ class Explorer(Problem):
     def result(self, state, action):
         return self.successor(state)[action]
 
-    # def move_right(self, state):
     def move(self, state, direction):
-        # person = self.move_person_right(state[0])
         person = self.move_person_dir(state[0], direction)
         block1 = self.move_block(state[1])
         block2 = self.move_block(state[2])
@@ -46,17 +41,11 @@ class Explorer(Problem):
             return new_state
         else:
             return None
-        # i.e.:
-        # return self.is_valid_state(new_state) and new_state or None
-        # """needs valid to be True to return new_state, or else it will return None"""
-        # """check `print(False and "something" or "something else")`"""
-        # """and `print(True and "something" or "something else")`"""
 
-    # def move_person_right(self, person):
     def move_person_dir(self, person, direction):
         "direction is tuple: (amount_move_x, amount_move_y)"
         person = list(person)
-        person[0] += direction[0]  # person[0] += 1 # for `def move_person_right`
+        person[0] += direction[0]
         person[1] += direction[1]
         return tuple(person)
 
