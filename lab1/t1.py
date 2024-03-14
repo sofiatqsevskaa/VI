@@ -36,7 +36,7 @@ class Snake(Problem):
             return None
         if (x, y) in self.red_apples:
             return None
-        if (x, y) in snake_segments[1:]:
+        if (x, y) in snake_segments[1:len(snake_segments)-1]:
             return None
         snake_segments.insert(0, snake_head)
         if (x, y) in apples:
