@@ -457,7 +457,7 @@ class Balls(Problem):
         self.n = n
 
     def goal_test(self, state):
-        return len(state) == 1
+        return len(state) == 1 and state[0] == (self.n // 2, self.n - 1)
 
     def actions(self, state):
         return self.successor(state).keys()
